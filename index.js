@@ -28,7 +28,5 @@ function postComment() {
 
   let commentsDiv = document.getElementById('comments')
 
-  let templateHTML = templateFn({ 'comment': comment, 'commenter': commenter })
-
-  commentsDiv.innerHTML += templateHTML
+  commentsDiv.innerHTML += templateFn({ 'comment': comment, 'commenter': commenter })
 }
