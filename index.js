@@ -5,17 +5,20 @@ function createPost() {
   // expect(spy).toHaveBeenCalledWith(document.getElementById("page-template").innerHTML)
   // expect(spy).toHaveBeenCalledWith(document.getElementById("post-template").innerHTML)
 
-  // let pageTemplate = document.getElementById('page-template').innerHTML
-  let postTemplate = document.getElementById('page-template').getElementById('post-template').innerHTML
-  let templateFn = _.template(postTemplate)
-
-  // it's inside of another template...
+  let pageTemplate = document.getElementById('page-template').innerHTML
+  let pageFn = _.template(pageTemplate)
+  document.getElementsByTagName("main")[0].innerHTML += pageFn();
+  
+  let postTemplate = document.getElementById('post-template').innerHTML
+  let postFn = _.template(postTemplate)
   let postDiv = document.getElementById('post')
+  postDiv.innerHTML = postFn({ 'title': title, 'body': body, 'author': author })
 
-  postDiv.innerHTML = templateFn({ 'title': title, 'body': body, 'author': author })
+  let commentsTemplate = document.getElementById('comments-template').innerHTML
+  let commentsFn = _.template(commentsTemplate)
+  postDiv.append = commentsFn()
 }
 
-//issues with form grabbing a value?
 function postComment() {
   let commenter = document.getElementById('commenterName').value
   let comment = document.getElementById('commentText').value
@@ -29,3 +32,5 @@ function postComment() {
 
   commentsDiv.innerHTML += templateHTML
 }
+
+
