@@ -8,7 +8,7 @@ function createPost() {
   let pageTemplate = document.getElementById('page-template').innerHTML
   let pageFn = _.template(pageTemplate)
   document.getElementsByTagName("main")[0].innerHTML += pageFn();
-  
+
   let postTemplate = document.getElementById('post-template').innerHTML
   let postFn = _.template(postTemplate)
   let postDiv = document.getElementById('post')
@@ -32,5 +32,3 @@ function postComment() {
 
   commentsDiv.innerHTML += templateHTML
 }
-
-
