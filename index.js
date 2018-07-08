@@ -16,7 +16,7 @@ function createPost() {
 
   let commentsTemplate = document.getElementById('comments-template').innerHTML
   let commentsFn = _.template(commentsTemplate)
-  postDiv.append += commentsFn()
+  postDiv.prepend += commentsFn()
 }
 
 function postComment() {
